@@ -71,7 +71,7 @@ int main(void){
   createLinkedList(length);
   do{
     printf("\n--------Menu--------\n");
-    printf("\n1. Traverse in sorted list");
+    printf("\n1. Traverse Linked List");
     printf("\n2. Reverse Linked List");
     printf("\n0. Exit");
     printf("\n--Enter your choice--\n");
