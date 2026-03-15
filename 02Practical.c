@@ -66,9 +66,11 @@ void copy(char copy[]){
   char str[100];
   printf("Enter the string: ");
   scanf(" %[^\n]s", str);
-  for(int i = 0; str[i] != '\0'; i++){
+  int i;
+  for( i = 0; str[i] != '\0'; i++){
     copy[i] = str[i];
   }
+  copy[i] = '\0';
 }
 
 int main(void){
