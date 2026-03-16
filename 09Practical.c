@@ -56,10 +56,10 @@ void createLinkedList(int length)
 void insertBeg()
 {
   int info;
-  NODE* ptr = head;
+  NODE *ptr = head;
   printf("Enter the info: ");
   scanf("%d", &info);
-  NODE* n = createNode(info);
+  NODE *n = createNode(info);
   n->next = ptr;
   head = n;
   traverse();
@@ -68,15 +68,17 @@ void insertBeg()
 void unsortInsertMid()
 {
   int pos, info;
-  NODE* ptr = head, *next;
+  NODE *ptr = head, *next;
   printf("Enter the position where to insert new node: ");
   scanf("%d", &pos);
   pos -= 2;
   printf("Enter the info: ");
   scanf("%d", &info);
-  NODE* n = createNode(info);
-  for(int i = 0; i < pos; i++){
-    if(ptr->next == NULL){
+  NODE *n = createNode(info);
+  for (int i = 0; i < pos; i++)
+  {
+    if (ptr->next == NULL)
+    {
       printf("Position out of bound\n");
       return;
     }
@@ -93,9 +95,10 @@ void sortInsertMid()
   int info;
   NODE *ptr, *next;
   printf("Enter the info: ");
-  scanf("%d",&info);
-  NODE* n = createNode(info);
-  for(ptr = head; ptr->next->info < info; ptr = ptr->next);
+  scanf("%d", &info);
+  NODE *n = createNode(info);
+  for (ptr = head; ptr->next->info < info; ptr = ptr->next)
+    ;
   next = ptr->next;
   ptr->next = n;
   n->next = next;
@@ -105,11 +108,12 @@ void sortInsertMid()
 void insertEnd()
 {
   int info;
-  NODE* ptr = head;
+  NODE *ptr = head;
   printf("Enter the info: ");
   scanf("%d", &info);
-  NODE* n = createNode(info);
-  while(ptr->next != NULL){
+  NODE *n = createNode(info);
+  while (ptr->next != NULL)
+  {
     ptr = ptr->next;
   }
   ptr->next = n;
@@ -129,72 +133,72 @@ int main(void)
     scanf("%d", &sel1);
     switch (sel1)
     {
-    case 1:
-    {
-      printf("Enter the length of the linked list: ");
-      scanf("%d", &length);
-      createLinkedList(length);
-      do
+      case 1:
       {
-        printf("\n--------Submenu--------\n");
-        printf("\n1. Insert in the beginning");
-        printf("\n2. Insert in the middle");
-        printf("\n3. Insert at the end");
-        printf("\n0. Exit");
-        printf("\n--Enter your choice--\n");
-        scanf("%d", &sel2);
-        switch (sel2)
+        printf("Enter the length of the linked list: ");
+        scanf("%d", &length);
+        createLinkedList(length);
+        do
         {
-        case 1:
-          insertBeg();
-          break;
-        case 2:
-          sortInsertMid();
-          break;
-        case 3:
-          insertEnd();
-          break;
-        case 0:
-          break;
-        default:
-          printf("Enter correct choice\n");
-        }
-      } while (sel2 != 0);
-      break;
-    }
-    case 2:
-    {
-      printf("Enter the length of the linked list: ");
-      scanf("%d", &length);
-      createLinkedList(length);
-      do
+          printf("\n--------Submenu--------\n");
+          printf("\n1. Insert in the beginning");
+          printf("\n2. Insert in the middle");
+          printf("\n3. Insert at the end");
+          printf("\n0. Exit");
+          printf("\n--Enter your choice--\n");
+          scanf("%d", &sel2);
+          switch (sel2)
+          {
+          case 1:
+            insertBeg();
+            break;
+          case 2:
+            sortInsertMid();
+            break;
+          case 3:
+            insertEnd();
+            break;
+          case 0:
+            break;
+          default:
+            printf("Enter correct choice\n");
+          }
+        } while (sel2 != 0);
+        break;
+      }
+      case 2:
       {
-        printf("\n--------Submenu--------\n");
-        printf("\n1. Insert in the beginning");
-        printf("\n2. Insert in the middle");
-        printf("\n3. Insert at the end");
-        printf("\n0. Exit");
-        printf("\n--Enter your choice--\n");
-        scanf("%d", &sel2);
-        switch (sel2)
+        printf("Enter the length of the linked list: ");
+        scanf("%d", &length);
+        createLinkedList(length);
+        do
         {
-        case 1:
-          insertBeg();
-          break;
-        case 2:
-          unsortInsertMid();
-          break;
-        case 3:
-          insertEnd();
-          break;
-        case 0:
-          break;
-        default:
-          printf("Enter correct choice\n");
-        }
-      } while (sel2 != 0);
-      break;
-    }
+          printf("\n--------Submenu--------\n");
+          printf("\n1. Insert in the beginning");
+          printf("\n2. Insert in the middle");
+          printf("\n3. Insert at the end");
+          printf("\n0. Exit");
+          printf("\n--Enter your choice--\n");
+          scanf("%d", &sel2);
+          switch (sel2)
+          {
+          case 1:
+            insertBeg();
+            break;
+          case 2:
+            unsortInsertMid();
+            break;
+          case 3:
+            insertEnd();
+            break;
+          case 0:
+            break;
+          default:
+            printf("Enter correct choice\n");
+          }
+        } while (sel2 != 0);
+        break;
+      }
     }
   } while (sel1 != 0);
 }
