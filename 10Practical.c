@@ -75,13 +75,34 @@ void unsortDeleteMid(){
     printf("Enter the position to delete: ");
     scanf("%d",&pos);
     NODE* ptr = head;
-    for(int i = 0; i < pos-1; i++){
+    for(int i = 1; i < pos-1; i++){
         ptr = ptr->next;
     }
     NODE* next = ptr->next->next;
     free(ptr->next);
     ptr->next = next;
     traverse();
+}
+
+void sortDeleteMid(){
+    int info, flag = 0;
+    printf("Enter the number to delete: ");
+    scanf("%d",&info);
+    NODE* ptr = head;
+    for(;ptr->next != NULL; ptr = ptr->next){
+        if(ptr->next->info == info){
+            flag = 1;
+            break;
+        }
+    }
+    if(flag == 1){
+        NODE* next = ptr->next->next;
+        free(ptr->next);
+        ptr->next = next;
+        traverse();
+        return;
+    }
+    printf("Number not found\n");
 }
 
 int main(void)
@@ -117,7 +138,7 @@ int main(void)
             deleteBeg();
             break;
           case 2:
-            // sortDeleteMid();
+            sortDeleteMid();
             break;
           case 3:
             deleteEnd();
@@ -150,7 +171,7 @@ int main(void)
             deleteBeg();
             break;
           case 2:
-            // unsortDeleteMid();
+            unsortDeleteMid();
             break;
           case 3:
             deleteEnd();
