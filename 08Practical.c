@@ -45,6 +45,15 @@ void traverse(){
   printf("%d",ptr->info);
 }
 
+int traverseBack(NODE *ptr){
+  if(ptr->next == NULL){
+    printf("%d ",ptr->info);
+    return ptr->info;
+  }
+  traverseBack(ptr->next);
+  printf("%d ",ptr->info);
+}
+
 void reverse(){
   NODE *prev, *next;
   for(NODE* ptr = head; ptr != NULL; ptr = next){
@@ -72,13 +81,15 @@ int main(void){
   do{
     printf("\n--------Menu--------\n");
     printf("\n1. Traverse Linked List");
-    printf("\n2. Reverse Linked List");
+    printf("\n2. Traverse Backward Linked List");
+    printf("\n3. Reverse Linked List");
     printf("\n0. Exit");
     printf("\n--Enter your choice--\n");
     scanf("%d", &choice);
     switch(choice){
       case 1: traverse(); break;
-      case 2: reverse(); break;
+      case 2: traverseBack(head); break;
+      case 3: reverse(); break;
       case 0: break;
       default: printf("Enter correct choice\n");
     }
