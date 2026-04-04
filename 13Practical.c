@@ -81,7 +81,7 @@ void unsortInsertMid(){
     printf("Enter the position: ");
     scanf("%d",&pos);
     NODE *ptr = head, *n = createNode();
-    for(int i = 0; i < pos-1; i++){
+    for(int i = 0; i < pos-2; i++){
         ptr = ptr->next;
     }
     n->next = ptr->next;
